@@ -45,7 +45,7 @@ if menu == '2':
         index = 0
         with open(file="login/usr.json", mode='w') as usr:
             for i in userInfo["email"]:
-
+                userInfo
 
             json.dumps(userInfo, usr)
     finally:
