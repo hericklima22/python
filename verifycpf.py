@@ -1,3 +1,5 @@
+import random
+
 def validaCPF(cpf, a, b):
     somatorio = 0
     for i in range(9):
@@ -66,18 +68,33 @@ def verificador(cpf):
     return digitos
 
 
-cpf = input("9 digitos do CPF\n")
+def geraCpf():
+    cpf = [0, 6, 9, 5, 1, 4, 5, 6, 1]
+    for i in range(9):
+        cpf[i] = int(random.randint(0, 9))
+    
+    digitos = verificador(cpf)
+    cpfCompleto = cpf + digitos
 
-while len(cpf) != 9:
-    cpf = input("CPF invalido, digite novamente\n")
+    return cpfCompleto
+
+
+
 
 print("o que voce deseja:")
 print("1: validar")
 print("2: encontrar digito verificador")
+print("3: gerar um cpf aleatorio")
 
 selecao = input()
 
 if selecao == "1":
+
+    cpf = input("9 digitos do CPF\n")
+
+    while len(cpf) != 9:
+        cpf = input("CPF invalido, digite novamente\n")
+
     a = int(input("Digito 1: "))
     b = int(input("Digito 2: "))
     
@@ -88,7 +105,18 @@ if selecao == "1":
         print("o CPF eh invalido")
 
 elif selecao == "2":
+    cpf = input("9 digitos do CPF\n")
+
+    while len(cpf) != 9:
+        cpf = input("CPF invalido, digite novamente\n")
+
     digitos = verificador(cpf)
     final = "os digitos sao: {digitos}"
     print(digitos)
 
+elif selecao == "3":
+    cpfRandom = geraCpf()
+    for i in range(11):
+        print(cpfRandom[i], end='')
+    print()
+    print(cpfRandom)
