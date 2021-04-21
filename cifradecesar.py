@@ -1,8 +1,3 @@
-import decimal
-
-
-
-
 def cifra(str, chave, modo):
     alfabeto = 'ABCDEFGHIJKLMNOPQRSTUVWYZ'
     strUpper = str.upper()
